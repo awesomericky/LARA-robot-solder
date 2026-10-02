@@ -1,0 +1,14 @@
+[Unit]
+Description=Soldering research project page
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/awesomericky/solder_project_page
+ExecStart=/usr/bin/python3 -m http.server 8000 --bind 0.0.0.0 --directory /home/awesomericky/solder_project_page/public
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+
+[Install]
+WantedBy=default.target

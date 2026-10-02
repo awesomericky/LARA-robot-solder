@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learning-augmented robotic automation for real-world manufacturing. A hybrid robotic system for cable insertion and soldering, validated on a live motor production line.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="Learning-augmented robotic automation for real-world manufacturing">
+  <meta property="og:description" content="Conventional automation, adaptive neural controllers, and 3D safety monitoring—validated on a live production line.">
+  <meta property="og:image" content="assets/teaser.png">
+  <meta property="og:type" content="website">
+  <title>Learning-augmented robotic automation | Neuromeka</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css?v=6">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="navigation" aria-label="Page navigation">
+    <div class="navigation-inner">
+      <a class="wordmark" href="https://ai.neuromeka.com/" aria-label="Neuromeka AI home"><img src="assets/nrmk-ai-logo.png" width="3180" height="668" alt="nrmk AI"></a>
+      <div class="navigation-links">
+        <a href="#abstract">Abstract</a>
+        <a href="#framework">System</a>
+        <a href="#deployment">Deployment</a>
+        <a href="#safety">Safety</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header id="top" class="hero">
+      <img class="teaser" src="assets/teaser.png" width="2213" height="1218" fetchpriority="high" alt="Robotic motor production cell at the Neuromeka factory, with close-ups of worker interaction, cable insertion, and soldering.">
+      <div class="paper-heading">
+        <h1>Learning-augmented robotic automation<br class="desktop-break"> for real-world manufacturing</h1>
+        <p class="authors"><span>Yunho Kim<sup>*</sup></span><span>Van Quan Nguyen</span><span>Taewhan Kim</span><span>Young Jin Heo</span><span>Joonho Lee<sup>*</sup></span></p>
+        <p class="affiliation">Neuromeka Co., Ltd., Seoul, Republic of Korea</p>
+        <p class="corresponding"><sup>*</sup> Corresponding authors: <a href="mailto:yunho.kim@neuromeka.com">yunho.kim@neuromeka.com</a>, <a href="mailto:joonho.lee@neuromeka.com">joonho.lee@neuromeka.com</a></p>
+        <div class="paper-links" aria-label="Paper links">
+          <a class="paper-button" href="https://arxiv.org/abs/2604.22235" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h6"/></svg>Preprint <span>arXiv ↗</span></a>
+          <span class="publication-status">Main publication: not yet available</span>
+        </div>
+      </div>
+    </header>
+
+    <section id="abstract" class="section abstract-section" aria-labelledby="abstract-title">
+      <h2 id="abstract-title">Abstract</h2>
+      <div class="prose">
+        <p>Industrial robots are widely used in manufacturing, yet most manipulation still depends on fixed waypoint scripts that are brittle to environmental changes. Learning-based control offers a more adaptive alternative, but it remains unclear whether such methods, still mostly confined to laboratory demonstrations, can sustain hours of reliable operation, deliver consistent quality, and behave safely around people on a live production line. Here we present Learning-Augmented Robotic Automation, a hybrid system that integrates learned task controllers and a neural 3D safety monitor into conventional industrial workflows. It retains the core industrial automation backbone while introducing learning only where adaptability is needed. We deployed the system on an electric-motor production line to automate deformable cable insertion and soldering under real manufacturing constraints, a step previously performed manually by human workers. With less than 20 minutes of real-world data per task, the system operated continuously for 5 hours 10 minutes, producing 108 motors without physical fencing and achieving a 99.4% pass rate on product-level quality-control tests. It achieved near-human takt time with reduced cycle-time variability while consistently producing high-quality solder joints comparable to those of experienced operators. These results establish a practical pathway for extending industrial automation with learning-based methods.</p>
+      </div>
+    </section>
+
+    <section id="summary" class="section" aria-labelledby="summary-title">
+      <h2 id="summary-title">Summary video</h2>
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/8Uu_UGyLyKY" title="Summary: Learning-augmented robotic automation for real-world manufacturing" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <a class="watch-link" href="https://youtu.be/8Uu_UGyLyKY" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a>
+    </section>
+
+    <section id="framework" class="section" aria-labelledby="framework-title">
+      <h2 id="framework-title">Learning-augmented robotic automation</h2>
+      <figure>
+        <a class="figure-link" href="assets/framework.png" target="_blank" rel="noopener" aria-label="Open the system framework figure at full resolution"><img src="assets/framework.png" width="2400" height="937" loading="lazy" alt="Hybrid system framework integrating a conventional task scheduler and pretaught motions with neural task controllers and a neural 3D safety monitor."></a>
+        <figcaption>A <strong>factory-validated hybrid system</strong> that integrates reliable conventional automation with learning-based control in a safety-aware architecture. Instead of relying on a single end-to-end policy, our approach retains the core industrial backbone—an explicit task scheduler and pretaught motions for structured parts of the workflow—while <strong>introducing learning only where adaptability is required</strong>.</figcaption>
+      </figure>
+      <details class="method-details">
+        <summary>More details <span>Learning-based components</span></summary>
+        <div class="details-content">
+          <h3>Overview of the learning-based components</h3>
+          <figure>
+            <a class="figure-link portrait-figure" href="assets/method.png" target="_blank" rel="noopener" aria-label="Open the learning-based components figure at full resolution"><img src="assets/method.png" width="2285" height="2600" loading="lazy" alt="Three learning-based modules: (a) visual servoing controller, (b) imitation learning controller, and (c) neural 3D safety monitor."></a>
+            <figcaption><strong>(a)</strong> Visual servoing controller. <strong>(b)</strong> Imitation learning controller. <strong>(c)</strong> Neural 3D safety monitor.</figcaption>
+          </figure>
+        </div>
+      </details>
+    </section>
+
+    <section id="deployment" class="section" aria-labelledby="deployment-title">
+      <h2 id="deployment-title">Production-line deployment</h2>
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/-1WD8HGuK5w" title="Continuous operation on the Neuromeka Pohang electric-motor production line" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <a class="watch-link" href="https://youtu.be/-1WD8HGuK5w" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a>
+      <p class="prose caption">We deployed the system through continuous operation on a live electric-motor production line at the Neuromeka Pohang factory. Throughout the deployment, the system produced <strong>108 motors</strong> over approximately <strong>5 hours 10 minutes</strong>.</p>
+    </section>
+
+    <section id="validation" class="section" aria-labelledby="validation-title">
+      <h2 id="validation-title">Production outcomes and validation</h2>
+      <figure>
+        <a class="figure-link portrait-figure validation-figure" href="assets/production_validation.png" target="_blank" rel="noopener" aria-label="Open the production validation figure at full resolution"><img src="assets/production_validation.png" width="1859" height="2600" loading="lazy" alt="Production validation figure comparing robot and human cycle times, quality-control tests, projected throughput, and solder-joint appearance."></a>
+        <figcaption>Across the run, the robot executed 324 cable insertion-and-solder operations. Two operations failed due to premature insertion-termination, yielding a success rate of <strong>99.4%</strong> per operation. Processed motors passed the downstream <strong>QC tests</strong> used in routine production: tensile and electrical tests. The system achieved <strong>near-human takt time</strong> with <strong>reduced cycle-time variability</strong> while consistently producing <strong>high-quality solder joints</strong> comparable to those of experienced operators.</figcaption>
+      </figure>
+    </section>
+
+    <section id="adaptation" class="section" aria-labelledby="adaptation-title">
+      <h2 id="adaptation-title">Adaptive behavior of neural controllers</h2>
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/iuldg_uB5jU" title="Neural controllers adapting to variation in motor pose, hole position, and cable bending" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <a class="watch-link" href="https://youtu.be/iuldg_uB5jU" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a>
+      <p class="prose caption">Neural controllers <strong>handled inevitable variability</strong> during the production process. They adjusted motion to handle randomness in motor pose, hole position, and cable bending.</p>
+    </section>
+
+    <section id="safety" class="section" aria-labelledby="safety-title">
+      <h2 id="safety-title">Efficient risk reduction with a neural 3D safety monitor</h2>
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/qDf4CAxsT6M" title="Neural 3D safety monitoring for human–robot coordination in a shared workspace" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <a class="watch-link" href="https://youtu.be/qDf4CAxsT6M" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a>
+      <p class="prose caption">Neural 3D safety monitor <strong>enabled safe human-robot coordination</strong> without physical fencing and <strong>reduced avoidable downtime</strong>. When workers approached to load materials or retrieve completed products, the system reduced speed or paused as needed and resumed autonomously.</p>
+    </section>
+  </main>
+  <footer><span>Neuromeka · Learning-augmented robotic automation</span><a href="#top">Back to top ↑</a></footer>
+</body>
+</html>
